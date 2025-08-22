@@ -246,6 +246,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   gravity: -9.81
+  jumpForce: 5
+  groundCheckDistance: 1.15
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!143 &1081237615
 CharacterController:
   m_ObjectHideFlags: 0
@@ -479,6 +484,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1d49e938-c269-4f28-930e-0fa88e61c5e9
     m_ActionName: 'Game/MoveCamera[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1523033742}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: InputJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 10abc2a2-e61d-4f3b-b786-55f4fb0c097f
+    m_ActionName: 'Game/Jump[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game
@@ -662,7 +683,7 @@ GameObject:
   - component: {fileID: 1881336158}
   - component: {fileID: 1881336157}
   - component: {fileID: 1881336156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
