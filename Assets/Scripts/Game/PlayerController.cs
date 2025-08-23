@@ -2,14 +2,15 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(GravityPlayer))]
 public class PlayerController : MonoBehaviour
 {
     public static event Func<Transform> OnGetCamera;
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
-    public float gravity = -9.81f;
-    public float jumpForce = 5f;
+    public float gravity = -9.81f;   
+    public float jumpForce = 5f;    
 
     [Header("Ground Check")]
     public float groundCheckDistance = 0.2f;
@@ -19,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private Vector2 moveInput;
-
     private bool jumpPressed;
 
     private void OnEnable()
@@ -69,13 +69,13 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; 
+            velocity.y = -2f;
         }
 
         if (isGrounded && jumpPressed)
         {
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            jumpPressed = false; 
+            velocity.y = jumpForce;
+            jumpPressed = false;
         }
 
         velocity.y += gravity * Time.deltaTime;

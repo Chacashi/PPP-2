@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class InputReader : MonoBehaviour
 {
+    public static event Action OnInputQ;
+    public static event Action OnInputE;
     public static event Action<Vector2> OnMovePlayer;
     public static event Action<Vector2> OnMoveCamera;
     public static event Action<bool> OnJump;
@@ -18,5 +20,19 @@ public class InputReader : MonoBehaviour
     public void InputJump(InputAction.CallbackContext context)
     {
         OnJump?.Invoke(context.performed);
+    }
+    public void InputQ(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            OnInputQ?.Invoke();
+        }
+    }
+    public void InputE(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnInputE?.Invoke();
+        }
     }
 }
