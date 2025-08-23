@@ -6,10 +6,12 @@ public class GravityPlayer : MonoBehaviour
     [Header("Characteristic")]
     [SerializeField] private float maxgravity = -20f;
     [SerializeField] private float mingravity = 9.81f;
-    [SerializeField] private float duration = 2f;
 
     [Header("PlayerController Data")]
     private PlayerController playerController;
+
+    [Header("BarPowerController Data")]
+    [SerializeField] private BarPowerController barPowerController;
 
     private Coroutine gravityCoroutine;
 
@@ -42,22 +44,27 @@ public class GravityPlayer : MonoBehaviour
 
     private void HandleGravityInput(float newGravity)
     {
+
         if (gravityCoroutine != null)
         {
             StopCoroutine(gravityCoroutine);
             gravityCoroutine = null;
 
             playerController.gravity = -9.81f;
-            return; 
+            barPowerController.isFull = true;
+            return;
         }
 
-        gravityCoroutine = StartCoroutine(ChangeGravityCoroutine(newGravity, duration));
+        barPowerController.isFull = false;
+        gravityCoroutine = StartCoroutine(ChangeGravityCoroutine(newGravity, barPowerController.currentDuration));
     }
+
 
     private IEnumerator ChangeGravityCoroutine(float newGravity, float time)
     {
         playerController.gravity = newGravity;
         yield return new WaitForSeconds(time);
+        barPowerController.isFull = true;
 
         playerController.gravity = -9.81f;
         gravityCoroutine = null;
