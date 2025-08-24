@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
 
     private bool estabaEnElSuelo = false;
 
+    [Header("AudioClipSo")]
+    [SerializeField] private AudioClipSO audioSO;
+
+
     private void OnEnable()
     {
         InputReader.OnMovePlayer += SetMoveInput;
@@ -105,6 +109,7 @@ public class PlayerController : MonoBehaviour
             if (isGrounded && jumpPressed)
             {
                 velocity.y = jumpForce;
+                audioSO.PlayOneShoot();
                 jumpPressed = false;
             }
 
