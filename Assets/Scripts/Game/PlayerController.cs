@@ -65,22 +65,39 @@ public class PlayerController : MonoBehaviour
         direction.y = 0;
         controller.Move(direction * moveSpeed * Time.deltaTime);
 
-        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
-
-        if (isGrounded && velocity.y < 0)
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, groundCheckDistance, groundMask))
         {
-            velocity.y = -2f;
-        }
+            bool isGrounded = true;
 
-        if (isGrounded && jumpPressed)
-        {
-            velocity.y = jumpForce;
-            jumpPressed = false;
+            PlataformsCae plataformaCae = hit.collider.GetComponent<PlataformsCae>();
+            if (plataformaCae != null)
+            {
+                plataformaCae.Caer();
+            }
+
+            PlataformsSube plataformaSube = hit.collider.GetComponent<PlataformsSube>();
+            if (plataformaSube != null)
+            {
+                plataformaSube.Subir();
+            }
+
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+
+            if (isGrounded && jumpPressed)
+            {
+                velocity.y = jumpForce;
+                jumpPressed = false;
+            }
         }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
+
 
     private void OnDrawGizmos()
     {
