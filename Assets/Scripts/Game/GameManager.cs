@@ -7,10 +7,16 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.OnDead += Dead;
+        ProtalWin.OnWin += Win;
     }
     private void OnDisable()
     {
+        ProtalWin.OnWin -= Win;
         PlayerController.OnDead -= Dead;
+    }
+    private void Win()
+    {
+
     }
     private void Dead()
     {
