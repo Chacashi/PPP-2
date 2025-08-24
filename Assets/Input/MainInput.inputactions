@@ -152,6 +152,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Menu",
+            "id": "27b22e45-b539-43e3-a2ff-26f896159bd6",
+            "actions": [
+                {
+                    "name": "PlayGame",
+                    "type": "Button",
+                    "id": "47664ae6-72ae-42b9-b153-e3bdccdbfd62",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "84676d5b-7b47-461d-8ad5-bbed3a741e01",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
