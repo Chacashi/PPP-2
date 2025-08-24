@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51461e515db7d4e468b7888b4f1bf596, type: 3}
   m_Name: Jump
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: dab4ff8d278e67e40bbe80189e97f15e, type: 3}
   audioMixerGroup: {fileID: 232223056258831122, guid: b68bc677a5fa7ab4ea6423bfc655a8e0, type: 2}
