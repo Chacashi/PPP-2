@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -6,11 +7,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static event Func<Transform> OnGetCamera;
+    public static event Action OnDead;
+
+    [Header("Player Stats")]
+    [SerializeField] private int maxVida = 100;
+    [SerializeField] private int vida;
+    [SerializeField] private float umbralCaida = -10f;  
+    [SerializeField] private float multiplicadorDaño = 2f; 
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
-    public float gravity = -9.81f;   
-    public float jumpForce = 5f;    
+    public float gravity = -9.81f;
+    public float jumpForce = 5f;
 
     [Header("Ground Check")]
     public float groundCheckDistance = 0.2f;
@@ -21,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector2 moveInput;
     private bool jumpPressed;
+
+    private bool estabaEnElSuelo = false;
 
     private void OnEnable()
     {
@@ -37,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        vida = maxVida;
     }
 
     private void Start()
@@ -81,6 +92,11 @@ public class PlayerController : MonoBehaviour
                 plataformaSube.Subir();
             }
 
+            if (!estabaEnElSuelo)
+            {
+                RevisarDañoCaida();
+            }
+
             if (isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
@@ -91,13 +107,33 @@ public class PlayerController : MonoBehaviour
                 velocity.y = jumpForce;
                 jumpPressed = false;
             }
+
+            estabaEnElSuelo = true;
+        }
+        else
+        {
+            estabaEnElSuelo = false;
         }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 
+    private void RevisarDañoCaida()
+    {
+        if (velocity.y < umbralCaida)
+        {
+            int daño = Mathf.RoundToInt(Mathf.Abs(velocity.y) * multiplicadorDaño);
+            vida -= daño;
+            Debug.Log($" Daño por caída: {daño}, Vida restante: {vida}");
 
+            if (vida <= 0)
+            {
+                OnDead?.Invoke();
+                Debug.Log("  El jugador ha muerto");
+            }
+        }
+    }
 
     private void OnDrawGizmos()
     {
