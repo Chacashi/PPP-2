@@ -1297,7 +1297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &62413080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6544,7 +6544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &442226900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10353,6 +10353,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aa128bfde184b4840b23d58da39ccf0f, type: 3}
       propertyPath: m_Name
       value: Escenary
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa128bfde184b4840b23d58da39ccf0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 924024073577587439, guid: aa128bfde184b4840b23d58da39ccf0f, type: 3}
       propertyPath: m_Layer
@@ -16476,7 +16480,7 @@ RectTransform:
   m_Father: {fileID: 451644843}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17362,7 +17366,7 @@ RectTransform:
   m_Father: {fileID: 1781697451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19678,7 +19682,7 @@ RectTransform:
   m_Father: {fileID: 1315729297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -23435,7 +23439,6 @@ GameObject:
   - component: {fileID: 1081237615}
   - component: {fileID: 1081237614}
   - component: {fileID: 1081237616}
-  - component: {fileID: 1081237617}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23598,33 +23601,6 @@ MonoBehaviour:
   maxgravity: -20
   mingravity: 9.81
   barPowerController: {fileID: 1495330997}
---- !u!54 &1081237617
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081237609}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1084501178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -781662012061765686, guid: aa128bfde184b4840b23d58da39ccf0f, type: 3}
@@ -25516,7 +25492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1215539064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26039,7 +26015,7 @@ RectTransform:
   m_Father: {fileID: 162240987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -37273,7 +37249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1924238378
 RectTransform:
   m_ObjectHideFlags: 0

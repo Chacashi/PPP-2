@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     }
     private void Win()
     {
-
+        Debug.Log("Ganaste");
     }
     private void Dead()
     {
